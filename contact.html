@@ -112,7 +112,7 @@
             <div class="col-lg-7 mb-5">
                 <div class="contact-form bg-light p-30">
                     <div id="success"></div>
-                    <form method=”POST” class="main_form">
+                    <form id="request" class="main_form" netlify>
                         <div class="control-group">
                             <input type="text" class="form-control" name="name" placeholder="Your Name"
                                 required="required" data-validation-required-message="Please enter your name" />
@@ -139,36 +139,6 @@
                                 Message</button>
                         </div>
                     </form>
-                    
-                    
-                    <?php
-$message_sent = false;
-if (isset($_POST['email'])) && $_POST['email'] !='') {
-  if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ){
-    //submit the form
-    $userFirstName = $_POST['name'];
-    $userEmail = $_POST['email'];
-    $message = $_POST['notes'];
-    $subject = $_POST['subject'];
-
-    $to = "fazilnagiyev@strongbeardcompany.com";
-    $body = "";
-
-    $body .= "From: ".$userFirstName." \r\n";
-    $body .= "Email: ".$userFirstName. "\r\n";
-    $body .= "Notes: ".$message. "\r\n";
-    $body .= "Subject: ".$subject. "\r\n";
-
-    mail($to, $messageSubject, $body);
-    $message_sent = true;
-  }
-  else {
-    $invalid_class_name = "form-invalid";
-  }
-}
-?>
-                    
-                    
        </div>
             </div>
             <div class="col-lg-5 mb-5">
